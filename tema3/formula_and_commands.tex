@@ -3,46 +3,54 @@
 
 
 \documentclass{article}
-\usepackage{xltxtra}
-\usepackage{fontspec}
-\usepackage{polyglossia}
-% \usepackage{minted}
-\setmainlanguage[babelshorthands=true]{russian}
-\usepackage[usenames,dvipsnames,svgnames,table]{xxcolor}
-%\usepackage{calc}
 
-
-% babel shorthands are:
-%  "--- Cyrillic emdash in plain text.
-%  "--~ Cyrillic emdash in compound names (surnames).
-%  "--* Cyrillic emdash for denoting direct speech.
-% "~ unbreakable hype. Example: как в 90"~х годах
-
-\setotherlanguage{english}
+\input{inp_pkg_pdflatex.tex}
 
 
 
-\setmainfont{Cambria}
-%\setromanfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-
-
-% \newfontfamily{\cyrillicfontrm}{Times New Roman}
-\newfontfamily{\cyrillicfonttt}{Courier New} 
-
+\usepackage{amstext}
 
 \begin{document}
 	Привет, \LaTeX!
-    
+    \begin{verbatim}
+		Привет, \LaTeX!
+    \end{verbatim}
+
+\hrule
+
+Вставляем произвольный текст 
+
+
+\begin{verbatim}
+\begin{equation}
+    \rho_\text{молока}=\frac{M_\text{молока}}{V_\text{молока}} 
+    \text{, если корова тяжелее воздуха}
+\end{equation}
+\end{verbatim}
+
+\begin{equation}
+    \rho_\text{молока}=\frac{M_\text{молока}}{V_\text{молока}} 
+    \text{, если корова тяжелее воздуха} \\
+\end{equation}
+
+\hrule
+
     \newcommand{\txtscript}[1]{\textit{\scriptsize{}#1}}
     
+    \begin{verbatim}
+    \newcommand{\txtscript}[1]{\textit{\scriptsize{}#1}}
+    \end{verbatim}
+
     \[
-    \fbox{$\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}$}
+    \fbox{$\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}$} 
     \]
-   %  \mint{C}|for(i=0;i<10;++i) printf("%d",i) ;|
      
+\begin{verbatim}
+     \[
+    \fbox{$\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}$} 
+    \]
+\end{verbatim}
+
      \newcounter{nomer}
      \renewcommand{\thenomer}{\asbuk{nomer}}
      \setcounter{nomer}{5}
