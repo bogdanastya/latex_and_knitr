@@ -1,0 +1,238 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+
+\documentclass{article}
+
+\input{inp_pkg_pdflatex.tex}
+
+
+\usepackage{amstext}
+\usepackage{calc}
+\usepackage{framed}
+\usepackage{parskip}
+
+
+\begin{document}
+
+
+\section{Примеры определения команд}
+        Привет, \LaTeX! \\
+        \newcommand{\mytexlogo}{pdf\LaTeX} \\
+        Привет, \mytexlogo! \\
+        \renewcommand{\mytexlogo}{xe\LaTeX} \\
+        Привет, \mytexlogo!
+\begin{framed}
+ 
+\begin{verbatim}
+Привет, \LaTeX!
+\newcommand{\mytexlogo}{pdf\LaTeX} \\
+Привет, \mytexlogo! \\
+\renewcommand{\mytexlogo}{xe\LaTeX} \\
+Привет, \mytexlogo!   
+\end{verbatim}
+
+\end{framed}
+
+\hrule
+
+Вставляем произвольный текст 
+
+
+\begin{verbatim}
+\begin{equation}
+    \rho_\text{молока}=\frac{M_\text{молока}}{V_\text{молока}} 
+    \text{, если корова тяжелее воздуха}
+\end{equation}
+\end{verbatim}
+
+\begin{equation}
+    \rho_\text{молока}=\frac{M_\text{молока}}{V_\text{молока}} 
+    \text{, если корова тяжелее воздуха} \\
+\end{equation}
+
+\hrule
+
+    \newcommand{\txtscript}[1]{\textit{\scriptsize{}#1}}
+    
+    \begin{verbatim}
+    \newcommand{\txtscript}[1]{\textit{\scriptsize{}#1}}
+    \end{verbatim}
+
+    \[
+    \boxed{\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}} 
+    \]
+     
+\begin{verbatim}
+     \[
+    \boxed{\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}} 
+    \]
+\end{verbatim}
+
+    \renewcommand{\txtscript}[1]{\textsf{\scriptsize{}#1}}
+    
+    \begin{verbatim}
+    \renewcommand{\txtscript}[1]{\textsf{\scriptsize{}#1}}
+    \end{verbatim}
+
+    \[
+    \boxed{\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}} 
+    \]
+ 
+\section{Счётчики}
+
+
+\verb|\newcounter{nomer} | 
+\newcounter{nomer}
+
+\verb|\thenomer | 
+\thenomer
+
+\stepcounter{nomer}
+\verb|     \stepcounter{nomer} |
+
+ 
+\verb|\thenomer | 
+\thenomer
+
+
+\verb|     \renewcommand{\thenomer}{\alph{nomer}}   |
+     \renewcommand{\thenomer}{\alph{nomer}}   
+
+ 
+\verb|\thenomer | 
+\thenomer
+
+\stepcounter{nomer}
+\verb|     \stepcounter{nomer} |
+
+
+\verb|\thenomer | 
+\thenomer
+ 
+\verb|\thenomer | 
+\thenomer
+
+
+\verb|     \setcounter{nomer}{5} |
+     \setcounter{nomer}{5}
+
+\verb|     \Asbuk{nomer}  |
+     \Asbuk{nomer}
+     
+\verb|     \asbuk{nomer} |
+     \asbuk{nomer}
+     
+     \addtocounter{nomer}{3}
+\verb|     \addtocounter{nomer}{3} |
+
+\verb|         \arabic{nomer}   |
+     \arabic{nomer}
+
+\verb|         \alph{nomer}  |
+     \alph{nomer}
+     
+\verb|         \Roman{nomer}   |
+     \Roman{nomer}
+     
+\verb|           \thenomer  |
+     \thenomer
+
+\verb|           \stepcounter{nomer}  |
+     \stepcounter{nomer}
+
+\verb|           \thenomer - \alph{nomer} |
+     \thenomer - \alph{nomer}
+     
+\section{Списки}
+
+     \begin{enumerate}
+      
+     \item пунткт \arabic{enumi}    
+     \item пунткт \arabic{enumi}
+     \item пунткт \arabic{enumi}
+     \end{enumerate}
+     
+Список с римскими номерами
+
+\begin{verbatim}
+   \begin{enumerate}
+     \renewcommand{\theenumi}{\Roman{enumi}} 
+     \item пунткт \arabic{enumi}    
+     \begin{enumerate}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+     \begin{enumerate}
+     \renewcommand{\theenumii}{\asbuk{enumii}} 
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+  \end{enumerate}
+\end{verbatim}
+
+   \begin{enumerate}
+     \renewcommand{\theenumi}{\Roman{enumi}} 
+     \item пунткт \arabic{enumi}    
+     \begin{enumerate}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+     \begin{enumerate}
+     \renewcommand{\theenumii}{\asbuk{enumii}} 
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+  \end{enumerate}
+     
+
+ \section{newtheorem}    
+     
+     
+ \colorlet{barcolor1}{red!20!yellow!15}
+
+ \colorlet{barcolor2}{blue!20!red!15}
+
+\newlength{\barlength}
+\setlength{\barlength}{4 cm minus 1 cm}
+\definecolor{gray50}{gray}{0.5}
+ \noindent
+  \textcolor{barcolor1}{\rule{\barlength}{1cm}}
+ \rule{\barlength}{1pt}
+ \vspace{\barlength}
+  \textcolor{barcolor2}{\rule{\barlength}{1cm}}
+  \textcolor{gray50}{\rule{\barlength}{1 cm}}
+    
+%         \begin{theorem}{О усталости}
+%         Каждый когда-нибудь устанет\ldots
+%        \end{theorem}
+		
+        
+        
+   \begin{itemize}
+       \item Пункт 
+     \end{itemize}   
+        
+    \begin{description}
+        \item[First] \hfill \\
+        The first item
+        \item[Second] \hfill \\
+        The second item
+        \item[Third] \hrulefill \\
+        The third etc \ldots
+    \end{description}    
+        
+        
+\end{document}

@@ -25,10 +25,6 @@
 \usetikzlibrary{graphs,shapes,arrows}
 
 
-
-%\usepackage[utf8]{inputenc}
-%\usepackage[T2A]{fontenc}
-%\usepackage[english,russian]{babel}
 \usetheme{Warsaw}
 
 
@@ -36,11 +32,23 @@
 \author{Илья Кочергин}
 \institute{кафедра экономической информатики ЭФ МГУ} 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \begin{frame}
 
 \titlepage
 \end{frame}	
-\section[Готовность изменять]{Постоянная готовность к изменениям}
+\section[простые примеры]{Примеры с простыми chunk'ами}
+\begin{frame}
+\frametitle{Простой слайд}
+ Просто текст слайда 
+ \begin{itemize}
+ 
+ \end{itemize}
+ 
+
+\end{frame}
+
+
 \begin{frame}
 	\frametitle{Необходимость согласовывать и корректировать}
 \begin{itemize}
@@ -54,7 +62,8 @@
 
 \begin{frame}[fragile]
 \frametitle{Второй слайд с кодом R}    
-<<setup,warning=FALSE,echo=F>>=
+<<<<<<< HEAD
+<<setup, warning=FALSE,echo=F>>=
   library(ggplot2)
 @
 
