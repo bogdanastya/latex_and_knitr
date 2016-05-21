@@ -7,14 +7,32 @@
 \input{inp_pkg_pdflatex.tex}
 
 
-
 \usepackage{amstext}
+\usepackage{calc}
+\usepackage{framed}
+\usepackage{parskip}
+
 
 \begin{document}
-	Привет, \LaTeX!
-    \begin{verbatim}
-		Привет, \LaTeX!
-    \end{verbatim}
+
+
+\section{Примеры определения команд}
+        Привет, \LaTeX! \\
+        \newcommand{\mytexlogo}{pdf\LaTeX} \\
+        Привет, \mytexlogo! \\
+        \renewcommand{\mytexlogo}{xe\LaTeX} \\
+        Привет, \mytexlogo!
+\begin{framed}
+ 
+\begin{verbatim}
+Привет, \LaTeX!
+\newcommand{\mytexlogo}{pdf\LaTeX} \\
+Привет, \mytexlogo! \\
+\renewcommand{\mytexlogo}{xe\LaTeX} \\
+Привет, \mytexlogo!   
+\end{verbatim}
+
+\end{framed}
 
 \hrule
 
@@ -42,32 +60,92 @@
     \end{verbatim}
 
     \[
-    \fbox{$\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}$} 
+    \boxed{\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}} 
     \]
      
 \begin{verbatim}
      \[
-    \fbox{$\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}$} 
+    \boxed{\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}} 
     \]
 \end{verbatim}
 
-     \newcounter{nomer}
-     \renewcommand{\thenomer}{\asbuk{nomer}}
+    \renewcommand{\txtscript}[1]{\textsf{\scriptsize{}#1}}
+    
+    \begin{verbatim}
+    \renewcommand{\txtscript}[1]{\textsf{\scriptsize{}#1}}
+    \end{verbatim}
+
+    \[
+    \boxed{\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}} 
+    \]
+ 
+\section{Счётчики}
+
+
+\verb|\newcounter{nomer} | 
+\newcounter{nomer}
+
+\verb|\thenomer | 
+\thenomer
+
+\stepcounter{nomer}
+\verb|     \stepcounter{nomer} |
+
+ 
+\verb|\thenomer | 
+\thenomer
+
+
+\verb|     \renewcommand{\thenomer}{\alph{nomer}}   |
+     \renewcommand{\thenomer}{\alph{nomer}}   
+
+ 
+\verb|\thenomer | 
+\thenomer
+
+\stepcounter{nomer}
+\verb|     \stepcounter{nomer} |
+
+
+\verb|\thenomer | 
+\thenomer
+ 
+\verb|\thenomer | 
+\thenomer
+
+
+\verb|     \setcounter{nomer}{5} |
      \setcounter{nomer}{5}
+
+\verb|     \Asbuk{nomer}  |
      \Asbuk{nomer}
      
+\verb|     \asbuk{nomer} |
      \asbuk{nomer}
-     \addtocounter{nomer}{2*3}
+     
+     \addtocounter{nomer}{3}
+\verb|     \addtocounter{nomer}{3} |
+
+\verb|         \arabic{nomer}   |
      \arabic{nomer}
+
+\verb|         \alph{nomer}  |
      \alph{nomer}
      
+\verb|         \Roman{nomer}   |
      \Roman{nomer}
      
+\verb|           \thenomer  |
      \thenomer
+
+\verb|           \stepcounter{nomer}  |
      \stepcounter{nomer}
-     \thenomer \alph{nomer}
+
+\verb|           \thenomer - \alph{nomer} |
+     \thenomer - \alph{nomer}
      
-     
+\section{Списки}
+
      \begin{enumerate}
       
      \item пунткт \arabic{enumi}    
@@ -75,7 +153,53 @@
      \item пунткт \arabic{enumi}
      \end{enumerate}
      
-     %     \vskip{0.1\textheight}
+Список с римскими номерами
+
+\begin{verbatim}
+   \begin{enumerate}
+     \renewcommand{\theenumi}{\Roman{enumi}} 
+     \item пунткт \arabic{enumi}    
+     \begin{enumerate}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+     \begin{enumerate}
+     \renewcommand{\theenumii}{\asbuk{enumii}} 
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+  \end{enumerate}
+\end{verbatim}
+
+   \begin{enumerate}
+     \renewcommand{\theenumi}{\Roman{enumi}} 
+     \item пунткт \arabic{enumi}    
+     \begin{enumerate}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+     \begin{enumerate}
+     \renewcommand{\theenumii}{\asbuk{enumii}} 
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+      \item подпункт \arabic{enumii}
+     \end{enumerate}
+ 
+     \item пунткт \arabic{enumi}
+  \end{enumerate}
+     
+
+ \section{newtheorem}    
+     
      
  \colorlet{barcolor1}{red!20!yellow!15}
 
